@@ -1,0 +1,35 @@
+
+echo ""
+echo "#######################################"
+echo ""
+echo "SIMPLE - Recall_T_Classical, Precision_T_Classical, F1_T_Classical"
+echo ""
+../src/evaluate -c ../examples/simple/simple.real ../examples/simple/simple.pred 1 0 one flat flat
+echo ""
+echo "#######################################"
+echo ""
+echo "SIMPLE: Recall_T_Flat, Precision_T_Flat, F1_T_Flat_Flat"
+echo ""
+../src/evaluate -t ../examples/simple/simple.real ../examples/simple/simple.pred 1 0 reciprocal flat flat
+echo ""
+echo "#######################################"
+echo ""
+echo "SIMPLE: Recall_T_Front, Precision_T_Flat, F1_T_Front_Flat"
+echo ""
+../src/evaluate -t ../examples/simple/simple.real ../examples/simple/simple.pred 1 0 reciprocal flat front
+echo ""
+echo "#######################################"
+echo ""
+echo "SIMPLE: Recall_T_Back, Precision_T_Flat, F1_T_Back_Flat"
+echo ""
+../src/evaluate -t ../examples/simple/simple.real ../examples/simple/simple.pred 1 0 reciprocal flat back
+echo ""
+echo "#######################################"
+echo ""
+echo "SIMPLE: Recall_T_Middle, Precision_T_Flat, F1_T_Middle_Flat"
+echo ""
+../src/evaluate -t ../examples/simple/simple.real ../examples/simple/simple.pred 1 0 reciprocal flat middle
+echo ""
+echo "#######################################"
+echo ""
+

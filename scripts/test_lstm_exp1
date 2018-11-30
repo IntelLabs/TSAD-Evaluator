@@ -1,0 +1,158 @@
+
+echo ""
+echo "#######################################"
+echo ""
+echo "ECG - Recall_T_Classical, Precision_T_Classical, F1_T_Classical"
+echo ""
+../src/evaluate -c ../examples/ecg/lstm_ad.real ../examples/ecg/lstm_ad.pred 1 0 one flat flat
+echo ""
+echo "ECG - Recall_T_Flat, Precision_T_Flat, F1_T_Flat_Flat"
+echo ""
+../src/evaluate -t ../examples/ecg/lstm_ad.real ../examples/ecg/lstm_ad.pred 1 0 reciprocal flat flat
+echo ""
+echo "ECG - Recall_T_Front, Precision_T_Flat, F1_T_Front_Flat"
+echo ""
+../src/evaluate -t ../examples/ecg/lstm_ad.real ../examples/ecg/lstm_ad.pred 1 0 reciprocal flat front
+echo ""
+echo "ECG - Recall_T_Back, Precision_T_Flat, F1_T_Back_Flat"
+echo ""
+../src/evaluate -t ../examples/ecg/lstm_ad.real ../examples/ecg/lstm_ad.pred 1 0 reciprocal flat back 
+echo ""
+echo "ECG - Recall_T_Middle, Precision_T_Flat, F1_T_Middle_Flat"
+echo ""
+../src/evaluate -t ../examples/ecg/lstm_ad.real ../examples/ecg/lstm_ad.pred 1 0 reciprocal flat middle 
+echo ""
+echo "#######################################"
+echo ""
+echo "SPACE-SHUTTLE - Recall_T_Classical, Precision_T_Classical, F1_T_Classical"
+echo ""
+../src/evaluate -c ../examples/space_shuttle/lstm_ad.real ../examples/space_shuttle/lstm_ad.pred 1 0 one flat flat
+echo ""
+echo "SPACE-SHUTTLE - Recall_T_Flat, Precision_T_Flat, F1_T_Flat_Flat"
+echo ""
+../src/evaluate -t ../examples/space_shuttle/lstm_ad.real ../examples/space_shuttle/lstm_ad.pred 1 0 reciprocal flat flat
+echo ""
+echo "SPACE-SHUTTLE - Recall_T_Front, Precision_T_Flat, F1_T_Front_Flat"
+echo ""
+../src/evaluate -t ../examples/space_shuttle/lstm_ad.real ../examples/space_shuttle/lstm_ad.pred 1 0 reciprocal flat front
+echo ""
+echo "SPACE-SHUTTLE - Recall_T_Back, Precision_T_Flat, F1_T_Back_Flat"
+echo ""
+../src/evaluate -t ../examples/space_shuttle/lstm_ad.real ../examples/space_shuttle/lstm_ad.pred 1 0 reciprocal flat back 
+echo ""
+echo "SPACE-SHUTTLE - Recall_T_Middle, Precision_T_Flat, F1_T_Middle_Flat"
+echo ""
+../src/evaluate -t ../examples/space_shuttle/lstm_ad.real ../examples/space_shuttle/lstm_ad.pred 1 0 reciprocal flat middle 
+echo ""
+echo "#######################################"
+echo ""
+echo "SINE - Recall_T_Classical, Precision_T_Classical, F1_T_Classical"
+echo ""
+../src/evaluate -c ../examples/sine/lstm_ad.real ../examples/sine/lstm_ad.pred 1 0 one flat flat
+echo ""
+echo "SINE - Recall_T_Flat, Precision_T_Flat, F1_T_Flat_Flat"
+echo ""
+../src/evaluate -t ../examples/sine/lstm_ad.real ../examples/sine/lstm_ad.pred 1 0 reciprocal flat flat
+echo ""
+echo "SINE - Recall_T_Front, Precision_T_Flat, F1_T_Front_Flat"
+echo ""
+../src/evaluate -t ../examples/sine/lstm_ad.real ../examples/sine/lstm_ad.pred 1 0 reciprocal flat front
+echo ""
+echo "SINE - Recall_T_Back, Precision_T_Flat, F1_T_Back_Flat"
+echo ""
+../src/evaluate -t ../examples/sine/lstm_ad.real ../examples/sine/lstm_ad.pred 1 0 reciprocal flat back 
+echo ""
+echo "SINE - Recall_T_Middle, Precision_T_Flat, F1_T_Middle_Flat"
+echo ""
+../src/evaluate -t ../examples/sine/lstm_ad.real ../examples/sine/lstm_ad.pred 1 0 reciprocal flat middle 
+echo ""
+echo "#######################################"
+echo ""
+echo "NYC-TAXI - Recall_T_Classical, Precision_T_Classical, F1_T_Classical"
+echo ""
+../src/evaluate -c ../examples/nyc_taxi/lstm_ad.real ../examples/nyc_taxi/lstm_ad.pred 1 0 one flat flat
+echo ""
+echo "NYC-TAXI - Recall_T_Flat, Precision_T_Flat, F1_T_Flat_Flat"
+echo ""
+../src/evaluate -t ../examples/nyc_taxi/lstm_ad.real ../examples/nyc_taxi/lstm_ad.pred 1 0 reciprocal flat flat
+echo ""
+echo "NYC-TAXI - Recall_T_Front, Precision_T_Flat, F1_T_Front_Flat"
+echo ""
+../src/evaluate -t ../examples/nyc_taxi/lstm_ad.real ../examples/nyc_taxi/lstm_ad.pred 1 0 reciprocal flat front
+echo ""
+echo "NYC-TAXI - Recall_T_Back, Precision_T_Flat, F1_T_Back_Flat"
+echo ""
+../src/evaluate -t ../examples/nyc_taxi/lstm_ad.real ../examples/nyc_taxi/lstm_ad.pred 1 0 reciprocal flat back 
+echo ""
+echo "NYC-TAXI - Recall_T_Middle, Precision_T_Flat, F1_T_Middle_Flat"
+echo ""
+../src/evaluate -t ../examples/nyc_taxi/lstm_ad.real ../examples/nyc_taxi/lstm_ad.pred 1 0 reciprocal flat middle 
+echo ""
+echo "#######################################"
+echo ""
+echo "TWITTER-AAPL - Recall_T_Classical, Precision_T_Classical, F1_T_Classical"
+echo ""
+../src/evaluate -c ../examples/aapl/lstm_ad.real ../examples/aapl/lstm_ad.pred 1 0 one flat flat
+echo ""
+echo "TWITTER-AAPL - Recall_T_Flat, Precision_T_Flat, F1_T_Flat_Flat"
+echo ""
+../src/evaluate -t ../examples/aapl/lstm_ad.real ../examples/aapl/lstm_ad.pred 1 0 reciprocal flat flat
+echo ""
+echo "TWITTER-AAPL - Recall_T_Front, Precision_T_Flat, F1_T_Front_Flat"
+echo ""
+../src/evaluate -t ../examples/aapl/lstm_ad.real ../examples/aapl/lstm_ad.pred 1 0 reciprocal flat front
+echo ""
+echo "TWITTER-AAPL - Recall_T_Back, Precision_T_Flat, F1_T_Back_Flat"
+echo ""
+../src/evaluate -t ../examples/aapl/lstm_ad.real ../examples/aapl/lstm_ad.pred 1 0 reciprocal flat back 
+echo ""
+echo "TWITTER-AAPL - Recall_T_Middle, Precision_T_Flat, F1_T_Middle_Flat"
+echo ""
+../src/evaluate -t ../examples/aapl/lstm_ad.real ../examples/aapl/lstm_ad.pred 1 0 reciprocal flat middle 
+echo ""
+echo "#######################################"
+echo ""
+echo "MACHINE-TEMP - Recall_T_Classical, Precision_T_Classical, F1_T_Classical"
+echo ""
+../src/evaluate -c ../examples/machine_temp/lstm_ad.real ../examples/machine_temp/lstm_ad.pred 1 0 one flat flat
+echo ""
+echo "MACHINE-TEMP - Recall_T_Flat, Precision_T_Flat, F1_T_Flat_Flat"
+echo ""
+../src/evaluate -t ../examples/machine_temp/lstm_ad.real ../examples/machine_temp/lstm_ad.pred 1 0 reciprocal flat flat
+echo ""
+echo "MACHINE-TEMP - Recall_T_Front, Precision_T_Flat, F1_T_Front_Flat"
+echo ""
+../src/evaluate -t ../examples/machine_temp/lstm_ad.real ../examples/machine_temp/lstm_ad.pred 1 0 reciprocal flat front
+echo ""
+echo "MACHINE-TEMP - Recall_T_Back, Precision_T_Flat, F1_T_Back_Flat"
+echo ""
+../src/evaluate -t ../examples/machine_temp/lstm_ad.real ../examples/machine_temp/lstm_ad.pred 1 0 reciprocal flat back 
+echo ""
+echo "MACHINE-TEMP - Recall_T_Middle, Precision_T_Flat, F1_T_Middle_Flat"
+echo ""
+../src/evaluate -t ../examples/machine_temp/lstm_ad.real ../examples/machine_temp/lstm_ad.pred 1 0 reciprocal flat middle 
+echo ""
+echo "#######################################"
+echo ""
+echo "TIME-GUIDED - Recall_T_Classical, Precision_T_Classical, F1_T_Classical"
+echo ""
+../src/evaluate -c ../examples/timeguided/lstm_ad.real ../examples/timeguided/lstm_ad.pred 1 0 one flat flat
+echo ""
+echo "TIME-GUIDED - Recall_T_Flat, Precision_T_Flat, F1_T_Flat_Flat"
+echo ""
+../src/evaluate -t ../examples/timeguided/lstm_ad.real ../examples/timeguided/lstm_ad.pred 1 0 reciprocal flat flat
+echo ""
+echo "TIME-GUIDED - Recall_T_Front, Precision_T_Flat, F1_T_Front_Flat"
+echo ""
+../src/evaluate -t ../examples/timeguided/lstm_ad.real ../examples/timeguided/lstm_ad.pred 1 0 reciprocal flat front
+echo ""
+echo "TIME-GUIDED - Recall_T_Back, Precision_T_Flat, F1_T_Back_Flat"
+echo ""
+../src/evaluate -t ../examples/timeguided/lstm_ad.real ../examples/timeguided/lstm_ad.pred 1 0 reciprocal flat back 
+echo ""
+echo "TIME-GUIDED - Recall_T_Middle, Precision_T_Flat, F1_T_Middle_Flat"
+echo ""
+../src/evaluate -t ../examples/timeguided/lstm_ad.real ../examples/timeguided/lstm_ad.pred 1 0 reciprocal flat middle 
+echo ""
+echo "#######################################"
+echo ""

@@ -1,0 +1,186 @@
+
+echo ""
+echo "#######################################"
+echo ""
+echo "ECG/LSTM - Recall_T_Classical, Precision_T_Classical, F1_T_Classical"
+echo ""
+../src/evaluate -c ../examples/ecg/lstm_ad.real ../examples/ecg/lstm_ad.pred 1 0 one flat flat
+echo ""
+echo "ECG/GH - Recall_T_Classical, Precision_T_Classical, F1_T_Classical"
+echo ""
+../src/evaluate -c ../examples/ecg/greenhouse.real ../examples/ecg/greenhouse.pred 1 0 one flat flat
+echo ""
+echo "ECG/Luminol - Recall_T_Classical, Precision_T_Classical, F1_T_Classical"
+echo ""
+../src/evaluate -c ../examples/ecg/luminol.real ../examples/ecg/luminol.pred 1 0 one flat flat
+echo ""
+echo "ECG/LSTM - Recall_T_Front, Precision_T_Flat, F1_T_Front_Flat"
+echo ""
+../src/evaluate -v -t ../examples/ecg/lstm_ad.real ../examples/ecg/lstm_ad.pred 1 0 reciprocal flat front
+echo ""
+echo "ECG/GH - Recall_T_Front, Precision_T_Flat, F1_T_Front_Flat"
+echo ""
+../src/evaluate -v -t ../examples/ecg/greenhouse.real ../examples/ecg/greenhouse.pred 1 0 reciprocal flat front
+echo ""
+echo "ECG/Luminol - Recall_T_Front, Precision_T_Flat, F1_T_Front_Flat"
+echo ""
+../src/evaluate -v -t ../examples/ecg/luminol.real ../examples/ecg/luminol.pred 1 0 reciprocal flat front
+echo ""
+echo "#######################################"
+echo ""
+echo "SPACE-SHUTTLE/LSTM - Recall_T_Classical, Precision_T_Classical, F1_T_Classical"
+echo ""
+../src/evaluate -c ../examples/space_shuttle/lstm_ad.real ../examples/space_shuttle/lstm_ad.pred 1 0 one flat flat
+echo ""
+echo "SPACE-SHUTTLE/GH - Recall_T_Classical, Precision_T_Classical, F1_T_Classical"
+echo ""
+../src/evaluate -c ../examples/space_shuttle/greenhouse.real ../examples/space_shuttle/greenhouse.pred 1 0 one flat flat
+echo ""
+echo "SPACE-SHUTTLE/Luminol - Recall_T_Classical, Precision_T_Classical, F1_T_Classical"
+echo ""
+../src/evaluate -c ../examples/space_shuttle/luminol.real ../examples/space_shuttle/luminol.pred 1 0 one flat flat
+echo ""
+echo "SPACE-SHUTTLE/LSTM - Recall_T_Front, Precision_T_Flat, F1_T_Front_Flat"
+echo ""
+../src/evaluate -t ../examples/space_shuttle/lstm_ad.real ../examples/space_shuttle/lstm_ad.pred 1 0 reciprocal flat front
+echo ""
+echo "SPACE-SHUTTLE/GH - Recall_T_Front, Precision_T_Flat, F1_T_Front_Flat"
+echo ""
+../src/evaluate -t ../examples/space_shuttle/greenhouse.real ../examples/space_shuttle/greenhouse.pred 1 0 reciprocal flat front
+echo ""
+echo "SPACE-SHUTTLE/Luminol - Recall_T_Front, Precision_T_Flat, F1_T_Front_Flat"
+echo ""
+../src/evaluate -t ../examples/space_shuttle/luminol.real ../examples/space_shuttle/luminol.pred 1 0 reciprocal flat front
+echo ""
+echo "#######################################"
+echo ""
+echo "SINE/LSTM - Recall_T_Classical, Precision_T_Classical, F1_T_Classical"
+echo ""
+../src/evaluate -c ../examples/sine/lstm_ad.real ../examples/sine/lstm_ad.pred 1 0 one flat flat
+echo ""
+echo "SINE/GH - Recall_T_Classical, Precision_T_Classical, F1_T_Classical"
+echo ""
+../src/evaluate -c ../examples/sine/greenhouse.real ../examples/sine/greenhouse.pred 1 0 one flat flat
+echo ""
+echo "SINE/Luminol - Recall_T_Classical, Precision_T_Classical, F1_T_Classical"
+echo ""
+../src/evaluate -c ../examples/sine/luminol.real ../examples/sine/luminol.pred 1 0 one flat flat
+echo ""
+echo "SINE/LSTM - Recall_T_Front, Precision_T_Flat, F1_T_Front_Flat"
+echo ""
+../src/evaluate -t ../examples/sine/lstm_ad.real ../examples/sine/lstm_ad.pred 1 0 reciprocal flat front
+echo ""
+echo "SINE/GH - Recall_T_Front, Precision_T_Flat, F1_T_Front_Flat"
+echo ""
+../src/evaluate -t ../examples/sine/greenhouse.real ../examples/sine/greenhouse.pred 1 0 reciprocal flat front
+echo ""
+echo "SINE/Luminol - Recall_T_Front, Precision_T_Flat, F1_T_Front_Flat"
+echo ""
+../src/evaluate -t ../examples/sine/luminol.real ../examples/sine/luminol.pred 1 0 reciprocal flat front
+echo ""
+echo "#######################################"
+echo ""
+echo "NYC-TAXI/LSTM - Recall_T_Classical, Precision_T_Classical, F1_T_Classical"
+echo ""
+../src/evaluate -c ../examples/nyc_taxi/lstm_ad.real ../examples/nyc_taxi/lstm_ad.pred 1 0 one flat flat
+echo ""
+echo "NYC-TAXI/GH - Recall_T_Classical, Precision_T_Classical, F1_T_Classical"
+echo ""
+../src/evaluate -c ../examples/nyc_taxi/greenhouse.real ../examples/nyc_taxi/greenhouse.pred 1 0 one flat flat
+echo ""
+echo "NYC-TAXI/Luminol - Recall_T_Classical, Precision_T_Classical, F1_T_Classical"
+echo ""
+../src/evaluate -c ../examples/nyc_taxi/luminol.real ../examples/nyc_taxi/luminol.pred 1 0 one flat flat
+echo ""
+echo "NYC-TAXI/LSTM - Recall_T_Front, Precision_T_Flat, F1_T_Front_Flat"
+echo ""
+../src/evaluate -t ../examples/nyc_taxi/lstm_ad.real ../examples/nyc_taxi/lstm_ad.pred 1 0 reciprocal flat front
+echo ""
+echo "NYC-TAXI/GH - Recall_T_Front, Precision_T_Flat, F1_T_Front_Flat"
+echo ""
+../src/evaluate -t ../examples/nyc_taxi/greenhouse.real ../examples/nyc_taxi/greenhouse.pred 1 0 reciprocal flat front
+echo ""
+echo "NYC-TAXI/Luminol - Recall_T_Front, Precision_T_Flat, F1_T_Front_Flat"
+echo ""
+../src/evaluate -t ../examples/nyc_taxi/luminol.real ../examples/nyc_taxi/luminol.pred 1 0 reciprocal flat front
+echo ""
+echo "#######################################"
+echo ""
+echo "TWITTER-AAPL/LSTM - Recall_T_Classical, Precision_T_Classical, F1_T_Classical"
+echo ""
+../src/evaluate -c ../examples/aapl/lstm_ad.real ../examples/aapl/lstm_ad.pred 1 0 one flat flat
+echo ""
+echo "TWITTER-AAPL/GH - Recall_T_Classical, Precision_T_Classical, F1_T_Classical"
+echo ""
+../src/evaluate -c ../examples/aapl/greenhouse.real ../examples/aapl/greenhouse.pred 1 0 one flat flat
+echo ""
+echo "TWITTER-AAPL/Luminol - Recall_T_Classical, Precision_T_Classical, F1_T_Classical"
+echo ""
+../src/evaluate -c ../examples/aapl/luminol.real ../examples/aapl/luminol.pred 1 0 one flat flat
+echo ""
+echo "TWITTER-AAPL/LSTM - Recall_T_Front, Precision_T_Flat, F1_T_Front_Flat"
+echo ""
+../src/evaluate -t ../examples/aapl/lstm_ad.real ../examples/aapl/lstm_ad.pred 1 0 reciprocal flat front
+echo ""
+echo "TWITTER-AAPL/GH - Recall_T_Front, Precision_T_Flat, F1_T_Front_Flat"
+echo ""
+../src/evaluate -t ../examples/aapl/greenhouse.real ../examples/aapl/greenhouse.pred 1 0 reciprocal flat front
+echo ""
+echo "TWITTER-AAPL/Luminol - Recall_T_Front, Precision_T_Flat, F1_T_Front_Flat"
+echo ""
+../src/evaluate -t ../examples/aapl/luminol.real ../examples/aapl/luminol.pred 1 0 reciprocal flat front
+echo ""
+echo "#######################################"
+echo ""
+echo "MACHINE-TEMP/LSTM - Recall_T_Classical, Precision_T_Classical, F1_T_Classical"
+echo ""
+../src/evaluate -c ../examples/machine_temp/lstm_ad.real ../examples/machine_temp/lstm_ad.pred 1 0 one flat flat
+echo ""
+echo "MACHINE-TEMP/GH - Recall_T_Classical, Precision_T_Classical, F1_T_Classical"
+echo ""
+../src/evaluate -c ../examples/machine_temp/greenhouse.real ../examples/machine_temp/greenhouse.pred 1 0 one flat flat
+echo ""
+echo "MACHINE-TEMP/Luminol - Recall_T_Classical, Precision_T_Classical, F1_T_Classical"
+echo ""
+../src/evaluate -c ../examples/machine_temp/luminol.real ../examples/machine_temp/luminol.pred 1 0 one flat flat
+echo ""
+echo "MACHINE-TEMP/LSTM - Recall_T_Front, Precision_T_Flat, F1_T_Front_Flat"
+echo ""
+../src/evaluate -t ../examples/machine_temp/lstm_ad.real ../examples/machine_temp/lstm_ad.pred 1 0 reciprocal flat front
+echo ""
+echo "MACHINE-TEMP/GH - Recall_T_Front, Precision_T_Flat, F1_T_Front_Flat"
+echo ""
+../src/evaluate -t ../examples/machine_temp/greenhouse.real ../examples/machine_temp/greenhouse.pred 1 0 reciprocal flat front
+echo ""
+echo "MACHINE-TEMP/Luminol - Recall_T_Front, Precision_T_Flat, F1_T_Front_Flat"
+echo ""
+../src/evaluate -t ../examples/machine_temp/luminol.real ../examples/machine_temp/luminol.pred 1 0 reciprocal flat front
+echo ""
+echo "#######################################"
+echo ""
+echo "TIME-GUIDED/LSTM - Recall_T_Classical, Precision_T_Classical, F1_T_Classical"
+echo ""
+../src/evaluate -c ../examples/timeguided/lstm_ad.real ../examples/timeguided/lstm_ad.pred 1 0 one flat flat
+echo ""
+echo "TIME-GUIDED/GH - Recall_T_Classical, Precision_T_Classical, F1_T_Classical"
+echo ""
+../src/evaluate -c ../examples/timeguided/greenhouse.real ../examples/timeguided/greenhouse.pred 1 0 one flat flat
+echo ""
+echo "TIME-GUIDED/Luminol - Recall_T_Classical, Precision_T_Classical, F1_T_Classical"
+echo ""
+../src/evaluate -c ../examples/timeguided/luminol.real ../examples/timeguided/luminol.pred 1 0 one flat flat
+echo ""
+echo "TIME-GUIDED/LSTM - Recall_T_Front, Precision_T_Flat, F1_T_Front_Flat"
+echo ""
+../src/evaluate -t ../examples/timeguided/lstm_ad.real ../examples/timeguided/lstm_ad.pred 1 0 reciprocal flat front
+echo ""
+echo "TIME-GUIDED/GH - Recall_T_Front, Precision_T_Flat, F1_T_Front_Flat"
+echo ""
+../src/evaluate -t ../examples/timeguided/greenhouse.real ../examples/timeguided/greenhouse.pred 1 0 reciprocal flat front
+echo ""
+echo "TIME-GUIDED/Luminol - Recall_T_Front, Precision_T_Flat, F1_T_Front_Flat"
+echo ""
+../src/evaluate -t ../examples/timeguided/luminol.real ../examples/timeguided/luminol.pred 1 0 reciprocal flat front
+echo ""
+echo "#######################################"
+echo ""
