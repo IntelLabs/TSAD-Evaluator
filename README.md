@@ -115,7 +115,8 @@ double evaluator::udf_delta_def(timestamp t, timestamp anomaly_length, e_metric 
 + Paper: https://arxiv.org/abs/1803.03639/
 + Poster: https://people.csail.mit.edu/tatbul/talks/NeurIPS18_poster.pdf
 + Slides: https://people.csail.mit.edu/tatbul/talks/NeurIPS18_spotlight.pdf
-+ Short Video: https://www.youtube.com/watch?v=K5f-dUBiQP4
++ Talk: https://youtu.be/1D8mC89k8e8?t=4978
++ Preview: https://www.youtube.com/watch?v=K5f-dUBiQP4
 + Blog post: https://ai.intel.com/precision-and-recall-for-time-series/
 
 ## Contact
