@@ -28,6 +28,7 @@ SOFTWARE.
 #include <iostream>
 #include <stdlib.h>
 #include <string>
+#include <climits>
 
 #include "evaluator.h"
 
