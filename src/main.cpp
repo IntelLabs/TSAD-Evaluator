@@ -28,12 +28,62 @@ SOFTWARE.
 #include <iostream>
 #include <stdlib.h>
 #include <string>
+#include <cstring>
 
 #include "evaluator.h"
 
 using namespace std;
 using namespace anomaly;
+int INT_MAX=+2147483647;
+//----------------------------------------------------------------------------
+// Given an input data file consisting of intervals of anomalies,
+// read it into a vector of anomaly time intervals as well
+// as counting the total number of label entries in the file.
+//----------------------------------------------------------------------------
+time_intervals read_file_interval(ifstream &data, int &count)
+{
+  time_intervals anomalies;
 
+  int i = 0;
+  int start;
+  int end;
+  time_range range;
+  
+  while (data >> start)
+  {
+    data>>end;
+    data.ignore(INT_MAX, '\n'); // Ignore everything else other than label.
+    range.first = start; 
+    range.second = end;
+    anomalies.push_back(range);
+    ++i;
+  }
+  count = 1;
+  return anomalies;
+}
+
+void export2interval(time_intervals in, ofstream out)
+{
+  for (auto i = in.begin(); i != in.end(); ++i) 
+  {
+    out<<i->first<<" "<<i->second<<endl;
+  }
+  out.close();
+}
+
+time_intervals convert2unitsize(time_intervals in){
+  time_intervals out;
+  time_range range;
+  for (auto i = in.begin(); i != in.end(); ++i) 
+  {
+    for(int j=i->first;j<=i->second;j++){
+      range.first=j;
+      range.second=j;
+      out.push_back(range);
+    }
+  }
+  return out;
+}
 //----------------------------------------------------------------------------
 // Given an input data file consisting of 0/1 anomaly labels,
 // read it into a vector of anomaly time intervals as well
@@ -169,14 +219,17 @@ void output_usage(char *argv[])
   cout << endl;
   cout << "Usage: " << endl;
   cout << argv[0] 
-       << " {-v} [-c | -t | -n] <real_data_file> <predicted_data_file>"
+       << " {-v} {-i} [-c | -t | -n] <real_data_file> <predicted_data_file>"
        << endl;
   cout << argv[0] 
-       << " {-v} [-c | -t | -n] <real_data_file> <predicted_data_file>"
+       << " {-v} {-i} [-c | -t | -n] <real_data_file> <predicted_data_file>"
        << " <beta> <alpha_r> <gamma> <delta_p> <delta_r>" 
        << endl; 
   cout << "    -v        : " 
        << "Produce verbose output." 
+       << endl;
+  cout << "    -i        : " 
+       << "read interval range files." 
        << endl;
   cout << "    -c        : " 
        << "Compute classical metrics." 
@@ -233,13 +286,19 @@ void output_usage(char *argv[])
        << " -v -t ../examples/simple/simple.real "
        << "../examples/simple/simple.pred 1 0 reciprocal flat front" 
        << endl;
+  cout << argv[0] 
+       << " -v -i -t ../examples/simple/simple.reali"
+       << "../examples/simple/simple.predi 1 0 reciprocal flat front" 
+       << endl;
   cout << endl;
 }
+
+
 
 //----------------------------------------------------------------------------
 int main(int argc, char *argv[])
 {
-  if ((argc != 4) && (argc != 9) && (argc !=5) && (argc != 10)) 
+  if ((argc <2)) 
   {
     output_usage(argv);
     return 1;
@@ -247,23 +306,21 @@ int main(int argc, char *argv[])
 
   bool verbose = false;
   int offset = 0;
-  if ((argc == 5) || (argc == 10))
+  if (strcmp(argv[1+offset],"-v")==0)
   {
-    offset = 1;
-    string verbose_option = argv[1];
-    if (verbose_option == "-v")
-    {
-      verbose = true; 
-    }
-    else
-    {
-      cerr << "Error: Invalid verbose option!" << endl;
-      return 1;
-    }
+    offset ++;
+    verbose = true; 
+  }
+  bool is_interval=false;
+  if (strcmp(argv[1+offset],"-i")==0){
+    offset++;
+    is_interval=true;
   }
 
-  ifstream real_data(argv[2+offset]);
-  ifstream predicted_data(argv[3+offset]);
+  string rinf=argv[2+offset];
+  string pinf=argv[3+offset];
+  ifstream real_data(rinf);
+  ifstream predicted_data(pinf);
 
   if (!real_data.is_open() || !predicted_data.is_open())
   {
@@ -274,81 +331,58 @@ int main(int argc, char *argv[])
   int real_count = 0, predicted_count = 0;
   time_intervals real_anomalies, predicted_anomalies;
 
+  try
+  {
+    if(is_interval)
+      real_anomalies = read_file_interval(real_data, real_count);
+    else
+      real_anomalies = read_file(real_data, real_count);
+  }
+  catch (const char* msg)
+  {
+    cerr << msg << endl;
+    return 1;
+  }
+
+  try
+  {
+    if(is_interval)
+      predicted_anomalies = read_file_interval(predicted_data, predicted_count);
+    else 
+      predicted_anomalies = read_file(predicted_data, predicted_count);
+  }
+  catch (const char* msg) 
+  {
+    cerr << msg << endl;
+    return 1;
+  }
+  real_data.close();
+  predicted_data.close();
+  if(!is_interval){
+    //cout<<strcat(rinf,"i")<<endl;
+    // cout<<pinf + "i"<<endl;
+    export2interval(real_anomalies,ofstream(rinf+"i"));
+    export2interval(predicted_anomalies,ofstream(pinf+"i"));
+  }
   string metric_option = argv[1+offset];  
   if (metric_option == "-c") // Classical metrics
   {
-    try
-    {
-      real_anomalies = read_file_unitsize(real_data, real_count);
-    }
-    catch (const char* msg)
-    {
-      cerr << msg << endl;
-      return 1;
-    }
-
-    try
-    {
-      predicted_anomalies = read_file_unitsize(predicted_data, predicted_count);
-    }
-    catch (const char* msg) 
-    {
-      cerr << msg << endl;
-      return 1;
-    }
+    real_anomalies=convert2unitsize(real_anomalies);
+    predicted_anomalies=convert2unitsize(predicted_anomalies);
   }
   else if (metric_option == "-t") // Time series metrics
   {
-    try
-    {
-      real_anomalies = read_file(real_data, real_count);
-    }
-    catch (const char* msg) 
-    {
-      cerr << msg << endl;
-      return 1;
-    }
-
-    try
-    {
-      predicted_anomalies = read_file(predicted_data, predicted_count);
-    }
-    catch (const char* msg) 
-    {
-      cerr << msg << endl;
-      return 1;
-    }
   }
   else if (metric_option == "-n") // Numenta-like metrics 
   {
-    try
-    {
-      real_anomalies = read_file(real_data, real_count);
-    }
-    catch (const char* msg) 
-    {
-      cerr << msg << endl;
-      return 1;
-    }
-
-    try
-    {
-      predicted_anomalies = read_file_unitsize(predicted_data, predicted_count);
-    }
-    catch (const char* msg) 
-    {
-      cerr << msg << endl;
-      return 1;
-    }
+    predicted_anomalies = convert2unitsize(predicted_anomalies);
   }
   else 
   {
     cerr << "Error: Invalid metric option!" << endl;
     return 1;
   }
-  real_data.close();
-  predicted_data.close();
-
+  
   if (real_count != predicted_count)
   {
     cerr << "Error: Number of data items are different!" << endl;
@@ -360,9 +394,11 @@ int main(int argc, char *argv[])
     return 1;
   }
 
+
+
   evaluator e;
 
-  if ((argc == 4) || (argc == 5))
+  if (argc == 4+offset)
   {
     e = evaluator(real_anomalies, predicted_anomalies);
   }
