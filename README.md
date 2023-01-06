@@ -1,7 +1,5 @@
 # TSAD-Evaluator
 
-> :warning: **DISCONTINUATION OF PROJECT** - *This project will no longer be maintained by Intel.  Intel has ceased development and contributions including, but not limited to, maintenance, bug fixes, new releases, or updates, to this project.* **Intel no longer accepts patches to this project.**
-
 This software package, publicly released under the MIT License, implements the customizable evaluation model for time series anomaly detection presented in the following paper:
 
 **"Precision and Recall for Time Series"**, Nesime Tatbul, Tae Jun Lee, Stan Zdonik, Mejbah Alam, Justin Gottschlich, 32nd Annual Conference on Neural Information Processing Systems (NeurIPS'18), Montreal, Canada, December 2018. (https://arxiv.org/abs/1803.03639/)
