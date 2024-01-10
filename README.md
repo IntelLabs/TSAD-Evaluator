@@ -1,6 +1,6 @@
 <!--⚠️ DISCONTINUATION OF PROJECT - This project will no longer be maintained by Intel. Intel has ceased development and contributions including, but not limited to, maintenance, bug fixes, new releases, or updates, to this project. Intel no longer accepts patches to this project. If you have an ongoing need to use this project, are interested in independently developing it, or would like to maintain patches for the open source software community, please create your own fork of this project.-->
 
-# TSAD-Evaluator
+# TSAD-Evaluator with time interval input
 
 This software package, publicly released under the MIT License, implements the customizable evaluation model for time series anomaly detection presented in the following paper:
 
@@ -19,11 +19,11 @@ make
 There are two alternative ways to run TSAD-Evaluator:
 
 ```
-./evaluate {-v} [-c | -t | -n] <real_data_file> <predicted_data_file>
+./evaluate {-v} {-i} [-c | -t | -n] <real_data_file> <predicted_data_file>
 ```
 
 ```
-./evaluate {-v} [-c | -t | -n] <real_data_file> <predicted_data_file> <beta> <alpha_r> <gamma> <delta_p>
+./evaluate {-v} {-i} [-c | -t | -n] <real_data_file> <predicted_data_file> <beta> <alpha_r> <gamma> <delta_p>
 <delta_r>
 ```
 
@@ -31,6 +31,7 @@ Here is a description of all command line options, inputs, and parameters:
 
 ```
 -v : Produce verbose output.
+-i : interval file as input
 -c : Compute classical metrics.
 -t : Compute time series metrics.
 -n : Compute numenta-like metrics.
@@ -54,7 +55,7 @@ Here is a description of all command line options, inputs, and parameters:
 When no parameters are specified (like in the first usage above), then the following default values are used:
 
 ```
-./evaluate {-v} [-c | -t | -n] <real_data_file> <predicted_data_file> 1 0 one flat flat 
+./evaluate {-v} {-i} [-c | -t | -n] <real_data_file> <predicted_data_file> 1 0 one flat flat 
 ```
 
 To produce verbose output (i.e., to print the list of all real and predicted anomaly ranges), please use the `-v` option.
